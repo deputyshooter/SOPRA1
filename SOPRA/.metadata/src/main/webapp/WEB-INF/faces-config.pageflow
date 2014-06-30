@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14040506377260" configfile="/SOPRA/src/main/webapp/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" x="108" y="60" id="pf14040507412471" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf14040507412472 pf14040507412473" inlinks="pf14040507412473" path="/login.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="welcome.xhtml" x="366" y="179" id="pf14040507412474" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14040507412472" path="/welcome.xhtml"/>
-  <links id="pf14040507412472" target="pf14040507412474" source="pf14040507412471" outcome="login"/>
-  <links id="pf14040507412473" target="pf14040507412471" source="pf14040507412471" outcome="ungueltig">
-    <bendPoints d1Height="-66" d2Height="-66"/>
-    <bendPoints d1Width="-94" d1Height="-66" d2Width="-94" d2Height="-66"/>
-    <bendPoints d1Width="-94" d2Width="-94"/>
-  </links>
+  <nodes xsi:type="pageflow:PFPage" name="xhtml/Analyst.xhtml" x="429" y="15" id="pf14041390774390" inlinks="pf14041390774391" path="/xhtml/Analyst.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="xhtml/login.xhtml" x="156" y="120" id="pf14041390774392" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" outlinks="pf14041390774391 pf14041390774393 pf14041390774394 pf14041390774395" path="/xhtml/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="xhtml/Kunde.xhtml" x="432" y="120" id="pf14041390774397" inlinks="pf14041390774393" path="/xhtml/Kunde.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="xhtml/Administrator.xhtml" x="412" y="228" id="pf14041390774398" inlinks="pf14041390774394" path="/xhtml/Administrator.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="xhtml/loginFailed.xhtml" x="84" y="324" id="pf14041390774409" inlinks="pf14041390774395" path="/xhtml/loginFailed.xhtml"/>
+  <links id="pf14041390774391" target="pf14041390774390" source="pf14041390774392" outcome="Analyst"/>
+  <links id="pf14041390774393" target="pf14041390774397" source="pf14041390774392" outcome="Kunde"/>
+  <links id="pf14041390774394" target="pf14041390774398" source="pf14041390774392" outcome="Administrator"/>
+  <links id="pf14041390774395" target="pf14041390774409" source="pf14041390774392" outcome="ungueltig"/>
 </pageflow:Pageflow>

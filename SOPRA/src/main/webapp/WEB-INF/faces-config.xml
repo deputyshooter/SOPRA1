@@ -4,5 +4,37 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
     version="2.2">
+	<navigation-rule>
+		<display-name>xhtml/login.xhtml</display-name>
+		<from-view-id>/xhtml/login.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Analyst</from-outcome>
+			<to-view-id>/xhtml/Analyst.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>xhtml/login.xhtml</display-name>
+		<from-view-id>/xhtml/login.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Kunde</from-outcome>
+			<to-view-id>/xhtml/Kunde.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>xhtml/login.xhtml</display-name>
+		<from-view-id>/xhtml/login.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Administrator</from-outcome>
+			<to-view-id>/xhtml/Administrator.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>xhtml/login.xhtml</display-name>
+		<from-view-id>/xhtml/login.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>ungueltig</from-outcome>
+			<to-view-id>/xhtml/loginFailed.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
 </faces-config>

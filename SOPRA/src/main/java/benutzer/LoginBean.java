@@ -25,13 +25,13 @@ public class LoginBean {
     public String login() {
     	
     	List<Benutzer> benutzer = Datenbank.getBenutzer();
-    	System.out.println(benutzer.size() + " Benutzer in DB");
+    	System.out.println("(" + benutzer.size() + " Benutzer in DB)");
     	for (Benutzer b : benutzer){
     		if(benutzername.compareTo(b.getBenutzername()) == 0) {
     			System.out.println("Benutzer gefunden: " + benutzername);
     			if(passwort.compareTo(b.getPasswort()) == 0) {
     				System.out.println("eingeloggt als " + b.accountart);
-    				return "login";
+    				return b.accountart;
     			}
     			System.out.println("falsches Passwort");
     			return "ungueltig";
