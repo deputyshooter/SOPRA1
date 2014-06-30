@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14040506377260" configfile="/SOPRA/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" x="108" y="60" id="pf14040507412471" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf14040507412472 pf14040507412473" inlinks="pf14040507412473" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="welcome.xhtml" x="366" y="179" id="pf14040507412474" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14040507412472" path="/welcome.xhtml"/>
+  <links id="pf14040507412472" target="pf14040507412474" source="pf14040507412471" outcome="login"/>
+  <links id="pf14040507412473" target="pf14040507412471" source="pf14040507412471" outcome="ungueltig">
+    <bendPoints d1Height="-66" d2Height="-66"/>
+    <bendPoints d1Width="-94" d1Height="-66" d2Width="-94" d2Height="-66"/>
+    <bendPoints d1Width="-94" d2Width="-94"/>
+  </links>
+</pageflow:Pageflow>
