@@ -6,7 +6,7 @@ import javax.faces.bean.*;
 import javax.persistence.Entity;
 
 /**
- * 
+ * hi
  * 
  */
 @Entity
