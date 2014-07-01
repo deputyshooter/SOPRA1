@@ -1,10 +1,13 @@
 package projektelemente;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Set;
 
 import javax.faces.bean.*;
 import javax.persistence.*;
+
+import extern.Datenbank;
 
 /**
  * 
@@ -23,31 +26,61 @@ public class Projekt {
 	private benutzer.Analyst analyst;
 	@ManyToOne
 	private benutzer.Kunde kunde;
-	@OneToMany(mappedBy = "projekt")
+	@OneToMany(
+			mappedBy = "projekt")
 	private Set<Anforderung> anforderungen;
-	@OneToOne(mappedBy = "projekt")
+	@OneToOne(
+			mappedBy = "projekt")
 	private Begriffslexikon begriffslexikon;
-	@OneToOne(mappedBy = "projekt")
+	@OneToOne(
+			mappedBy = "projekt")
 	private Aenderungshistorie aenderungshistorie;
 	private Abnahmestatus abnahmestatus;
 
-	Projekt() {
+	public Projekt() {
 		this.abnahmestatus = Abnahmestatus.offen;
 		this.begriffslexikon = new Begriffslexikon();
+		this.begriffslexikon.setProjekt(this);
 		this.aenderungshistorie = new Aenderungshistorie();
+		this.aenderungshistorie.setProjekt(this);
 		// bezeichnung muss per setter gesetzt werden
 	}
 
 	/**
 	 * Diese Methode erstellt eine neue Anforderung. Ihr wird ein String
-	 * Ã¼bergeben, der die Bezeichnung der Anforderung festlegt, welche dann
-	 * erzeugt wird, sofern nicht bereits eine Anforderung mit derselben
-	 * Bezeich-nung existiert.
+	 * uebergeben, der die Bezeichnung der zu erstellenden Anforderung festlegt.
 	 * 
 	 * @param bezeichnung
+	 * @exception IllegalArgumentException
+	 *                wenn keine Bezeichnung übergeben wird oder bereits eine
+	 *                Anforderung mit der uebergebenen Bezeichnung existiert
 	 */
-	public void anforderungHinzufuegen(String bezeichnung) {
+	public void anforderungHinzufuegen(
+			String bezeichnung) {
+		if (bezeichnung == null)
+			throw new IllegalArgumentException(
+					"Die Bezeichnung der Anforderung darf nicht null sein");
 
+		Iterator<Anforderung> i = this.anforderungen
+				.iterator();
+		while (i.hasNext()) {
+			if (i.next()
+					.getBezeichnung() == bezeichnung)
+				throw new IllegalArgumentException(
+						"Es existiert bereits eine Anforderung mit der"
+								+ " uebergebenen Bezeichnung: "
+								+ bezeichnung);
+		}
+		try {
+			Anforderung a = new Anforderung();
+			a.setProjekt(this);
+			a.setAbnahmestatus(Abnahmestatus.offen);
+			a.setBezeichnung(bezeichnung);
+			Datenbank.save(a);
+			System.out.println("neue Anforderung erstellt: " + bezeichnung);
+		} catch (Exception e) {
+			System.out.println("Anforderung konnte nicht erstellt werden " + e.getMessage());
+		}
 	}
 
 	/**
@@ -59,7 +92,8 @@ public class Projekt {
 	 * @param bezeichnung
 	 * @param alternativeZu
 	 */
-	public void alternativeAnforderungHinzufuegen(String bezeichnung,
+	public void alternativeAnforderungHinzufuegen(
+			String bezeichnung,
 			Anforderung alternativeZu) {
 
 	}
@@ -114,7 +148,8 @@ public class Projekt {
 		return bezeichnung;
 	}
 
-	public void setBezeichnung(String bezeichnung) {
+	public void setBezeichnung(
+			String bezeichnung) {
 		this.bezeichnung = bezeichnung;
 	}
 
@@ -122,7 +157,8 @@ public class Projekt {
 		return abnahmestatus;
 	}
 
-	public void setAbnahmestatus(Abnahmestatus abnahmestatus) {
+	public void setAbnahmestatus(
+			Abnahmestatus abnahmestatus) {
 		this.abnahmestatus = abnahmestatus;
 	}
 
@@ -130,7 +166,8 @@ public class Projekt {
 		return begriffslexikon;
 	}
 
-	public void setBegriffslexikon(Begriffslexikon begriffslexikon) {
+	public void setBegriffslexikon(
+			Begriffslexikon begriffslexikon) {
 		this.begriffslexikon = begriffslexikon;
 	}
 
@@ -138,12 +175,32 @@ public class Projekt {
 		return aenderungshistorie;
 	}
 
-	public void setAenderungshistorie(Aenderungshistorie aenderungshistorie) {
+	public void setAenderungshistorie(
+			Aenderungshistorie aenderungshistorie) {
 		this.aenderungshistorie = aenderungshistorie;
 	}
 
-	public void setAnforderungen(Set<Anforderung> anforderungen) {
+	public void setAnforderungen(
+			Set<Anforderung> anforderungen) {
 		this.anforderungen = anforderungen;
 	}
+
+	public benutzer.Analyst getAnalyst() {
+		return analyst;
+	}
+
+	public void setAnalyst(benutzer.Analyst analyst) {
+		this.analyst = analyst;
+	}
+
+	public benutzer.Kunde getKunde() {
+		return kunde;
+	}
+
+	public void setKunde(benutzer.Kunde kunde) {
+		this.kunde = kunde;
+	}
+	
+	
 
 }

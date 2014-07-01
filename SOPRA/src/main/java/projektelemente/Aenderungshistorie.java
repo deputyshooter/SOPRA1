@@ -19,9 +19,7 @@ import benutzer.Benutzer;
 @ApplicationScoped
 public class Aenderungshistorie {
 
-	@Id @GeneratedValue
-	private int id;
-	
+	@Id
 	@OneToOne
 	private Projekt projekt;
 	
@@ -75,15 +73,6 @@ public class Aenderungshistorie {
 	
 	/* Getter- und Setter-Methoden */
 	
-	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public Projekt getProjekt() {
 		return projekt;
 	}

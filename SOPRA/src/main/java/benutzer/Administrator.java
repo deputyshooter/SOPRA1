@@ -14,6 +14,8 @@ import javax.persistence.Entity;
 @ApplicationScoped
 public class Administrator extends Benutzer {
 	
+	private static final long serialVersionUID = -1767103015919421707L;
+	
 	public Administrator() {
 		this.accountart = "Administrator";
 	}

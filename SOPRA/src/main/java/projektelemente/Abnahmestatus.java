@@ -8,7 +8,7 @@ package projektelemente;
  * @author Manuel Weber
  * 
  */
-enum Abnahmestatus {
+public enum Abnahmestatus {
 	
 	offen, abgenommen, abgelehnt
 

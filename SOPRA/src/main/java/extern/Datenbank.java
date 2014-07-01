@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import projektelemente.Projekt;
 import benutzer.Administrator;
 import benutzer.Analyst;
 import benutzer.Benutzer;
@@ -79,6 +80,15 @@ public class Datenbank{
 	@SuppressWarnings("unchecked")
 	public static List<Administrator> getAdministratoren() {
 		Query query = getEntityManager().createQuery("SELECT a FROM Administartor a");
+		return query.getResultList();
+	}
+	
+	/**
+	 * @return Liste aller Projekte in der Datenbank
+	 */
+	@SuppressWarnings("unchecked")
+	public static List<Projekt> getProjekte() {
+		Query query = getEntityManager().createQuery("SELECT p FROM Projekt p");
 		return query.getResultList();
 	}
 	

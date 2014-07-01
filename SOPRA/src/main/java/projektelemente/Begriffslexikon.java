@@ -16,8 +16,6 @@ import javax.faces.bean.*;
 public class Begriffslexikon {
 
 	@Id
-	private int id;
-	
 	@OneToOne
 	private Projekt projekt;
 	
@@ -46,14 +44,6 @@ public class Begriffslexikon {
 	
 	
 	/* Getter- und Setter-Methoden */
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public Projekt getProjekt() {
 		return projekt;

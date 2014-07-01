@@ -1,5 +1,6 @@
 package benutzer;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.faces.bean.*;
@@ -18,11 +19,14 @@ import projektelemente.Projekt;
 @ApplicationScoped
 public class Kunde extends Benutzer {
 
+	private static final long serialVersionUID = 6402234998131369691L;
+
 	@OneToMany(mappedBy = "kunde")
 	private Set<Projekt> projekte;
 	
 	public Kunde() {
 		this.accountart = "Kunde";
+		this.projekte = new HashSet<Projekt>();
 	}
 
 	/* Getter- und Setter-Methoden */
