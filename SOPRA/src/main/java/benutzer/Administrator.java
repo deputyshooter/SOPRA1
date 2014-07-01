@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 
 /**
  * hi
+ * testkommentar github 2
  * 
  */
 @Entity
