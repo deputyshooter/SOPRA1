@@ -1,6 +1,10 @@
 package extern;
 
 import benutzer.Benutzer;
+import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.activation.*;
 
 /**
  * Bietet die Möglichkeit Benutzer über bestimmte Ereignisse per E-Mail zu
