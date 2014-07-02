@@ -9,7 +9,6 @@ import extern.Datenbank;
 
 /**
  * LoginBean.java
- * Login
  * 
  */
 @ManagedBean

@@ -6,9 +6,6 @@ import javax.faces.bean.*;
 import javax.persistence.Entity;
 
 /**
- * hi
- * testkommentar github 2
- * testkommentar 
  * 
  */
 @Entity
